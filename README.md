@@ -4,7 +4,7 @@ It processes all .mp4 files with FFMPEG recursively from where the program was e
 # Installation
 [![GitHub All Releases](https://img.shields.io/github/downloads/AntonioRG00/Automatic_FFMPEG/total?color=blue)](https://github.com/AntonioRG00/Automatic_FFMPEG/releases)   **<---- Releases!**
 
-First you have to download and install FFMPEG, i have an automatic build but if you don't trust just watch a tutorial on youtube
+First you have to download and install FFMPEG, i have an automatic build but if you don't trust just watch a tutorial on youtube (The version tested of FFMPEG for this program is the 4.2)
 [FFMPEG Automatic Installer](http://www.mediafire.com/file/lx5dgdmxn0gcb9c/ffmpeg-4.2-setup.exe/file).
 
 After installing FFMPEG, download one of my releases and move the .jar to your videos folder, double click it and that is all! it will start working.
