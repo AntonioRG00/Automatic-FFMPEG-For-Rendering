@@ -7,7 +7,7 @@ public class InvocarProceso {
 		//args[0] Video a procesar
 		//args[1] Nombre del video ya procesado
 		try {
-			Runtime.getRuntime().exec("cmd /C ffmpeg\\bin\\ffmpeg.exe -i "+args[0]+" -vf scale=3840:2160:flags=neighbor "
+			Runtime.getRuntime().exec("cmd /C ffmpeg -i "+args[0]+" -vf scale=3840:2160:flags=neighbor "
 					+ "-c:v h264_nvenc -profile high -preset slow -rc vbr_2pass -qmin 17 -qmax 22 -2pass 1 -c:a:0 copy -b:a 384k "
 					+ args[1]);
 		} catch (IOException e) {

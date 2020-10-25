@@ -27,21 +27,21 @@ public class ConvertidorFFMPEG {
 			Comparator<File> comparadorModificacion = Comparator.comparing(File::lastModified);
 			videos.sort(comparadorModificacion.reversed());
 			
-			//Le cambiamos el nombre a uno entendible por el programa
+			//Le cambiamos el nombre a uno entendible por el programa sin mover el archivo de directorio
+			//El nombre será vid seguido de un número que se le asigna según su fecha de modificación
+			String pathAbsolutoPadre;
 			for(int i=0 ; i<videos.size() ; i++) {
-				videos.get(i).renameTo(new File("vid"+i+".mp4"));
+				pathAbsolutoPadre = new File(videos.get(i).getParent()).getAbsolutePath();
+				videos.get(i).renameTo(new File(pathAbsolutoPadre + "\\" + "vid"+i+".mp4"));
 			}
 			
 			//Ejecutamos un proceso de renderizado por cada .mp4
 			Path folder = Paths.get(new File("renderizados").getAbsolutePath());
 			long oldSize, newSize;
 			for(int i=0 ; i<videos.size() ; i++) {
-				ProcessBuilder pb = new ProcessBuilder("java","-jar","InvocarProceso.jar", 
+				ProcessBuilder pb = new ProcessBuilder("java","-cp","ConvertidorFFMPEG.jar","InvocarProceso", 
 						videos.get(i).getAbsolutePath(), //Video a procesar
 						new File(videos.get(i).getParent()).getAbsolutePath() + "\\renderizados" + "\\" + videos.get(i).getName());  //Nombre del video ya procesado
-//				Runtime.getRuntime().exec("cmd /C ffmpeg\\bin\\ffmpeg.exe -i "+videos.get(i).getAbsolutePath()+" -vf scale=3840:2160:flags=neighbor "
-//						+ "-c:v h264_nvenc -profile high -preset slow -rc vbr_2pass -qmin 17 -qmax 22 -2pass 1 -c:a:0 copy -b:a 384k "
-//						+ new File(videos.get(i).getParent()).getAbsolutePath() + "\\renderizados" + "\\" + videos.get(i).getName());
 
 				Process proc = pb.start();
 				proc.waitFor();
