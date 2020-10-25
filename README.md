@@ -2,7 +2,7 @@
 It processes all .mp4 files with FFMPEG recursively from where the program was executed and stores them in the directory "renderizados" which in turn is created in the same path where the program was executed.
 
 # Installation
-[![GitHub All Releases](https://img.shields.io/github/downloads/AntonioRG00/Automatic_FFMPEG/total?color=blue)](https://github.com/AntonioRG00/Automatic_FFMPEG/releases)
+[![GitHub All Releases](https://img.shields.io/github/downloads/AntonioRG00/Automatic_FFMPEG/total?color=blue)](https://github.com/AntonioRG00/Automatic_FFMPEG/releases)   **<---- Releases!**
 
 First you have to download and install FFMPEG, i have an automatic build but if you don't trust just watch a tutorial on youtube
 [FFMPEG Automatic Installer](http://www.mediafire.com/file/lx5dgdmxn0gcb9c/ffmpeg-4.2-setup.exe/file).
