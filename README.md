@@ -11,6 +11,9 @@ First you have to download and install FFMPEG, i have an automatic build but if 
 
 After installing FFMPEG, download one of my releases and move the .jar to your videos folder, double click it and that is all! it will start working.
 
+# Demonstration
+[Youtube Vid](https://youtu.be/wHZ3WnjeHbU).
+
 # Default Config
 
 > `ffmpeg  -i CONVERT.mp4 -vf scale=3840:2160:flags=neighbor -c:v h264_nvenc -profile high -preset slow -rc vbr_2pass -qmin 17 -qmax 22 -2pass 1 -c:a:0 copy -b:a 384k CONVERTED.mp4`
