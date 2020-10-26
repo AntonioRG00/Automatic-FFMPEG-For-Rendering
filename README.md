@@ -1,7 +1,7 @@
 # Automatic_FFMPEG
 It processes all .mp4 files with FFMPEG recursively from where the program was executed and stores them in the directory "renderizados" which in turn is created in the same path where the program was executed.
 
-**Warning: Overwrite the name of the video by a name that is assigned by its last modified date in descending order**
+**Warning: The program overwrite the name of the video by a name that is assigned by its last modified date in descending order**
 
 # Installation
 [![GitHub All Releases](https://img.shields.io/github/downloads/AntonioRG00/Automatic_FFMPEG/total?color=blue)](https://github.com/AntonioRG00/Automatic_FFMPEG/releases)   **<---- Releases!**
