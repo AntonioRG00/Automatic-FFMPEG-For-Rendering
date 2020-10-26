@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit;
 public class ConvertidorFFMPEG {
 	public static void main(String[]args) {
 		
-		//Leemos el contenido del directorio en busca de archivos mp4
-		BusquedaRecursiva br = new BusquedaRecursiva();
-		
 		//Creamos un directorio para guardar los renderizados
 		new File("renderizados").mkdir();
+		
+		//Clase para la búsqueda recursiva
+		BusquedaRecursiva br = new BusquedaRecursiva();
 		
 		try {
 			//Buscamos recursivamente desde donde se ejecuto el .jar
@@ -34,6 +34,11 @@ public class ConvertidorFFMPEG {
 				pathAbsolutoPadre = new File(videos.get(i).getParent()).getAbsolutePath();
 				videos.get(i).renameTo(new File(pathAbsolutoPadre + "\\" + "vid"+i+".mp4"));
 			}
+			
+			//Al haber cambiado el nombre de los ficheros hay que refrescar el array con los videos
+			br = new BusquedaRecursiva();
+			br.busquedaRecursiva(System.getProperty("user.dir"), ".mp4");
+			videos = br.getArrayResultado();
 			
 			//Ejecutamos un proceso de renderizado por cada .mp4
 			Path folder = Paths.get(new File("renderizados").getAbsolutePath());
@@ -69,9 +74,12 @@ public class ConvertidorFFMPEG {
 	
 }
 
-
 class BusquedaRecursiva{
-	private ArrayList<File> arrayResultado = new ArrayList<File>();
+	private ArrayList<File> arrayResultado;
+	
+	public BusquedaRecursiva() {
+		arrayResultado = new ArrayList<File>();
+	}
 	
 	//Busca recursivamente desde el string directorio pasado por parámetro en adelante y devolverá todos los
 	//archivos que contengan el keyword pasado por parámetro
