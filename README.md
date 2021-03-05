@@ -15,4 +15,4 @@ After installing FFMPEG, download one of my releases and move the .jar to your v
 
 # Default Config
 
-> `ffmpeg  -i CONVERT.mp4 -vf scale=3840:2160:flags=neighbor -c:v h264_nvenc -profile high -preset slow -rc vbr_2pass -qmin 17 -qmax 22 -2pass 1 -c:a:0 copy -b:a 384k CONVERTED.mp4`
+> `ffmpeg  -i CONVERT.mp4 -vf scale=1920:1080:flags=neighbor -c:v h264_nvenc -profile high -preset slow -rc vbr_2pass -qmin 17 -qmax 22 -2pass 1 -c:a:0 copy -b:a 384k CONVERTED.mp4`
